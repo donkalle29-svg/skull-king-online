@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skull King – Online</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<header><div class="eyebrow">🏴‍☠️ DAS PIRATEN-STICH-SPIEL</div><h1>SKULL <span>KING</span></h1><p class="sub">Eine Crew. Ein Raum. Wer wird König der sieben Meere?</p></header>
+<section id="entry" class="panel">
+  <h2>An Bord kommen</h2>
+  <label>Dein Spielername<input id="name" maxlength="18" placeholder="z. B. Käpt'n Alex"></label>
+  <div class="entry-grid">
+    <button id="create" class="primary">Spielraum erstellen</button>
+    <div class="join"><input id="code" maxlength="5" placeholder="RAUMCODE"><button id="join" class="secondary">Beitreten</button></div>
+  </div><p id="entryMsg" class="msg" aria-live="polite"></p>
+</section>
+<section id="game" hidden>
+  <div class="topline"><div>RAUM <strong id="roomCode">-----</strong></div><div id="roundLabel">Warte auf Crew</div></div>
+  <div class="layout">
+    <section class="panel table">
+      <div class="table-head"><h2 id="phaseTitle">Crew an Bord</h2><span id="status" class="status">Lobby</span></div>
+      <p id="message" class="msg"></p>
+      <div id="players" class="players"></div>
+      <div id="bidArea" hidden class="action-area"><h3>Wie viele Stiche sagen Sie voraus?</h3><div id="bidButtons" class="button-row"></div><p class="hint">Geben Sie Ihr Gebot geheim ab. Die anderen sehen es erst, wenn alle geboten haben.</p></div>
+      <div id="trickArea" hidden class="action-area"><h3>Aktueller Stich</h3><div id="trick" class="trick"></div><p id="turn" class="hint"></p></div>
+      <div id="resultArea" hidden class="action-area"><h3>Rundenergebnis</h3><div id="results"></div><button id="next" class="primary">Nächste Runde</button></div>
+      <div id="lobbyArea" class="action-area"><p class="hint">Teilen Sie den Raumcode mit Ihrer Crew. Es können 2 bis 8 Personen mitspielen.</p><button id="start" class="primary" disabled>Partie starten</button></div>
+      <div id="endArea" hidden class="action-area"><h3>🏆 Partie beendet</h3><div id="finalResults"></div></div>
+    </section>
+    <aside class="panel score"><h2>Spielstand</h2><div id="scoreboard"></div><p class="hint">10 Runden · Klassische Wertung</p></aside>
+  </div>
+  <section class="panel hand-panel"><div class="hand-title"><h2>Deine Hand</h2><span id="handCount" class="hint"></span></div><div id="hand" class="hand"></div><p id="handHint" class="hint">Deine Karten erscheinen hier.</p></section>
+</section>
+<footer>Private Spielräume · 2–8 Spieler · Keine Installation nötig</footer>
+</main>
+<script src="/socket.io/socket.io.js"></script><script src="game.js"></script>
+</body></html>
